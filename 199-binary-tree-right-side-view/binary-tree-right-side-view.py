@@ -18,11 +18,11 @@ class Solution:
             right = None
             for i in range(len(q)):
                 node = q.popleft()
-                right = node
+                right = node.val
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            res.append(right.val) if right else None
+            res.append(right)
         return res            
 
