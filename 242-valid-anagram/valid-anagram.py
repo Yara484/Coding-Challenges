@@ -3,11 +3,12 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        countS, countT = {}, {}
-        for i in s:
-            countS[i] = countS.get(i, 0) + 1
-            
-        for i in t:
-            countT[i] = countT.get(i, 0) + 1    
+        map1, map2 = {}, {}
 
-        return countT == countS    
+        for i in s:
+            map1[i] = map1.get(i, 0) + 1
+
+        for i in t:
+            map2[i] = map2.get(i, 0) + 1
+
+        return map1 == map2        
