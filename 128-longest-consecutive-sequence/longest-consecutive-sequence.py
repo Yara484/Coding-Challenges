@@ -1,12 +1,13 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
+        # Using a hashset because it has O(1) lookup
         numSet = set(nums)
-        result = 0
+        res = 0
 
-        for n in numSet:
-            if (n-1) not in numSet:
+        for num in numSet:
+            if (num - 1) not in numSet: # We have found start of sequence
                 length = 1
-                while (n+length) in numSet:
+                while (num + length) in numSet:
                     length += 1
-                result = max(result, length)    
-        return result
+                res = max(res, length)
+        return res            
