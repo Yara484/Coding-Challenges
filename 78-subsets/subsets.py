@@ -12,8 +12,8 @@ class Solution:
             backtrack(i+1) # Explore Decision
 
             # No Decision
-            sol.pop()
-            backtrack(i+1) # Backtrack to start over
+            sol.pop()      # Backtrack
+            backtrack(i+1) 
 
         backtrack(0)
         return res        
