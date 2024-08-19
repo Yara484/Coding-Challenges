@@ -1,5 +1,6 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
+        # Time Complexity: n!
         res, sol = [], []
         def backtrack():
             # Base Case
