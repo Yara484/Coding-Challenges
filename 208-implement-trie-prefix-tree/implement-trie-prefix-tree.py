@@ -29,8 +29,10 @@ class Trie:
         for c in prefix:
             if c not in curr.children:
                 return False
-            curr = curr.children[c]    
+            curr = curr.children[c]   
         return True
+
+# Trie is used for word search and auto complete, interesting
 
         
         
