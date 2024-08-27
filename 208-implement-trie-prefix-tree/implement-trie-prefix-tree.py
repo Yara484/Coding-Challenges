@@ -32,7 +32,7 @@ class Trie:
             curr = curr.children[c]   
         return True
 
-# Trie is used for word search and auto complete, interesting
+# Trie is used for word search and auto complete
 
         
         
