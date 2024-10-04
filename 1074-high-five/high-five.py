@@ -1,23 +1,18 @@
 class Solution:
     def highFive(self, items: List[List[int]]) -> List[List[int]]:
+        # Using min heap
         myMap = {}
 
         for ids, score in items:
             if ids not in myMap:
                 myMap[ids] = []
-            myMap[ids].append(score)    
-        
-        for key, value in myMap.items():
-            value.sort(reverse=True)  
-        total = 0
-        i = 0
+            heapq.heappush(myMap[ids], score)
+            if len(myMap[ids]) > 5:
+                heapq.heappop(myMap[ids])    
+
         res = []
         for key, value in myMap.items():
-            while i < 5:
-                total += value[i]
-                i += 1
-            res.append([key, total // 5])    
-            i = 0
-            total = 0
-        res.sort()    
-        return res    
+            res.append([key, sum(value) // 5])   
+        
+        res.sort()
+        return res         
