@@ -7,7 +7,5 @@ class Solution:
             if diff not in mymap:
                 mymap[nums[i]] = i
             else:
-                res.append(i)
-                res.append(mymap[diff])
-
-        return res            
+                return [i,mymap[diff]]
+        
