@@ -1,19 +1,17 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # Frequency Array
-        # Create array with length of nums
-        farray = [[] for i in range(len(nums)+1)]
-        mymap = {}
+        # Create a hashmap that counts no. of occurences of each number
+        countMap = {}
+        arr = []
         res = []
-        # Hashmap of values and their frequencies
-        for i in nums:
-            mymap[i] = mymap.get(i, 0) + 1
-        # Populating Freq array
-        for key, value in mymap.items():
-            farray[value].append(key)  
-        # Building result string by iterating in reverse
-        for i in range(len(farray)-1, 0, -1):
-            for j in farray[i]:
-                res.append(j) 
-                if len(res) == k:
-                    return res
+        for num in nums:
+            countMap[num] = countMap.get(num, 0) + 1
+
+        for num, count in countMap.items():
+            arr.append([count, num])
+        arr.sort(reverse = True)
+
+        for i in range(k):
+            res.append(arr[i][1])
+
+        return res 
